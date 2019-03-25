@@ -8,7 +8,12 @@ import { ProductComponent } from './product/product.component';
 @NgModule({
   declarations: [AppComponent, MenuComponent, ProductComponent],
   imports: [BrowserModule],
-  providers: [],
+  providers: [
+    {
+      provide: 'appTitle',
+      useValue: 'Bienvenue sur Zenika E-Commerce',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

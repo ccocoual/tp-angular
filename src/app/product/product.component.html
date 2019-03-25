@@ -1,12 +1,12 @@
 <div class="col-md-3 col-sm-6 product-item">
-  <div [ngClass]="{'thumbnail': true, 'last': product.stock === 1}">
-      <img [src]="product.photo" alt="">
-      <div class="caption">
-          <h3>{{ product.title }} - {{ product.price }}€</h3>
-          <p>{{ product.description }}</p>
-          <p>
-              <button class="btn btn-primary" (click)="handleAddToBasket()">Ajoutez au panier</button>
-          </p>
-      </div>
+  <div class="thumbnail" [ngClass]="{ last: isTheLast() }">
+    <img [src]="product.photo" alt="" />
+    <div class="caption">
+      <h3>{{ product.title }} - {{ product.price }}€</h3>
+      <p>{{ product.description }}</p>
+      <p>
+        <button class="btn btn-primary" (click)="handleAddToBasket()">Ajoutez au panier</button>
+      </p>
+    </div>
   </div>
 </div>
