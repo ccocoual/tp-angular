@@ -19,7 +19,8 @@ describe('MenuComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render the header', () => {
+    const brand = fixture.nativeElement.querySelector('.navbar-brand');
+    expect(brand.textContent).toContain('Zenika');
   });
 });
