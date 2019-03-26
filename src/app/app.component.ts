@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe(products => (this.products = products));
   }
 
   getTotal() {
@@ -32,8 +32,7 @@ export class AppComponent implements OnInit {
     return this.productService.isAvailable(product);
   }
 
-  updateBasketTotal(product: Product) {
-    this.productService.decreaseStock(product);
-    this.customerService.addProduct(product);
+  updateBasketTotal(event) {
+    this.customerService.addProduct(event).subscribe(() => this.productService.decreaseStock(event));
   }
 }

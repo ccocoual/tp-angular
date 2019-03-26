@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 
@@ -12,7 +13,7 @@ import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, ProductComponent, SortPipe],
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule],
   providers: [
     {
       provide: 'appTitle',
