@@ -2,7 +2,7 @@
 <div class="container">
   <header class="jumbotron hero-spacer">
     <h1>{{ title }}</h1>
-    <p>Votre panier s'élève à {{ getTotal() }}€</p>
+    <p>Votre panier s'élève à {{ getTotal() | currency: 'CAD' }}</p>
     <p><a class="btn btn-primary btn-large">Voir mon panier</a></p>
   </header>
 
