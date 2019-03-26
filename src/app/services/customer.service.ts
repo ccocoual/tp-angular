@@ -17,11 +17,16 @@ export class CustomerService {
     return this.http.get(this.API_URL).pipe(
       map((products: any[]) =>
         products.map(
-          product => new Product(product.title, product.description, product.photo, product.price, product.stock)
+          product =>
+            new Product(product.id, product.title, product.description, product.photo, product.price, product.stock)
         )
       ),
       tap(products => (this.basket = products))
     );
+  }
+
+  isBasketFilled(): boolean {
+    return this.basket.length > 0;
   }
 
   addProduct(product: Product): Observable<any> {
