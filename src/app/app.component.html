@@ -11,10 +11,16 @@
   <div class="row">
     <div class="col-lg-12">
       <h2>Derniers Produits</h2>
+      Triez par :
+      <div class="btn-group" role="group">
+        <button class="btn btn-default" (click)="sortKey = 'title'">Title</button>
+        <button class="btn btn-default" (click)="sortKey = 'price'">Prix</button>
+        <button class="btn btn-default" (click)="sortKey = 'stock'">Stock</button>
+      </div>
     </div>
   </div>
   <div class="row text-center">
-    <ng-container *ngFor="let product of (products | sort)">
+    <ng-container *ngFor="let product of (products | sort: sortKey)">
       <app-product
         *ngIf="isAvailable(product)"
         [product]="product"

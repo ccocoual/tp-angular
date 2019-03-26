@@ -5,7 +5,15 @@ import { Product } from '../model/product';
   name: 'sort',
 })
 export class SortPipe implements PipeTransform {
-  transform(products: Product[]): Product[] {
-    return [...products].sort((p1, p2) => p1.title.localeCompare(p2.title));
+  transform(products: Product[], key: keyof Product = 'title'): Product[] {
+    return [...products].sort((p1, p2) => {
+      if (p1[key] > p2[key]) {
+        return 1;
+      }
+      if (p1[key] < p2[key]) {
+        return -1;
+      }
+      return 0;
+    });
   }
 }
