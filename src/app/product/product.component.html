@@ -1,5 +1,5 @@
 <div class="col-md-3 col-sm-6 product-item">
-  <div class="thumbnail" [ngClass]="{ last: isTheLast() }">
+  <div class="thumbnail" [ngClass]="{ last: isTheLast() }" (click)="goToProductDetail()">
     <img [src]="product.photo" alt="" />
     <div class="caption">
       <h3>{{ product.title | uppercase }} - {{ product.price | currency: 'CAD':'symbol':'1.2-2' }}</h3>

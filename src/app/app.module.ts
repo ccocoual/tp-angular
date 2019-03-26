@@ -15,14 +15,24 @@ import { BasketComponent } from './basket/basket.component';
 import { SortPipe } from './pipes/sort.pipe';
 
 import { BasketGuard } from './guards/basket.guard';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
   { path: 'basket', component: BasketComponent, canActivate: [BasketGuard] },
 ];
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, ProductComponent, HomeComponent, BasketComponent, SortPipe],
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    ProductComponent,
+    HomeComponent,
+    BasketComponent,
+    ProductDetailComponent,
+    SortPipe,
+  ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
