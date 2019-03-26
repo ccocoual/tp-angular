@@ -9,14 +9,13 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ProductService {
-  private API_URL = 'http://localhost:8080/rest';
-  private products: Product[] = [];
+  private readonly API_URL = 'http://localhost:8080/rest/products';
 
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
     return this.http
-      .get(`${this.API_URL}/products`)
+      .get(this.API_URL)
       .pipe(
         map((products: any[]) =>
           products.map(
