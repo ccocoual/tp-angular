@@ -58,15 +58,13 @@ describe('BasketComponent', () => {
     });
   });
 
-  it('should add has-error class when name is invalid and input is touched', async () => {
+  it('should add has-error class when name is invalid', async () => {
     component.customer.name = 'something';
     await waitValidation(fixture);
 
     const nameFormGroup = fixture.nativeElement.querySelectorAll('.form-group')[0];
-    const nameInput = nameFormGroup.querySelectorAll('input')[0];
     expect(includes(nameFormGroup.classList, 'has-error')).toBe(false);
 
-    nameInput.dispatchEvent(new Event('input'));
     component.customer.name = '';
 
     await waitValidation(fixture);

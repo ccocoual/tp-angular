@@ -13,7 +13,7 @@
   </div>
   <div class="col-md-6">
     <form (submit)="checkout()" #customerForm="ngForm" novalidate>
-      <div class="form-group" [class.has-error]="nameInput.touched && nameInput.invalid">
+      <div class="form-group" [class.has-error]="nameInput.invalid">
         <label for="name">Nom</label>
         <input
           type="text"
@@ -26,11 +26,11 @@
           aria-describedby="helpName"
           required
         />
-        <span id="helpName" class="help-block" *ngIf="nameInput.touched && nameInput.invalid">
+        <span id="helpName" class="help-block" *ngIf="nameInput.invalid">
           Le nom est requis
         </span>
       </div>
-      <div class="form-group" [class.has-error]="addressInput.touched && addressInput.invalid">
+      <div class="form-group" [class.has-error]="addressInput.invalid">
         <label for="address">Adresse</label>
         <textarea
           class="form-control"
@@ -42,11 +42,11 @@
           aria-describedby="helpAddress"
           required
         ></textarea>
-        <span id="helpAddress" class="help-block" *ngIf="addressInput.touched && addressInput.invalid">
+        <span id="helpAddress" class="help-block" *ngIf="addressInput.invalid">
           L'addresse est requise
         </span>
       </div>
-      <div class="form-group" [class.has-error]="creditCardInput.touched && creditCardInput.invalid">
+      <div class="form-group" [class.has-error]="creditCardInput.invalid">
         <label for="creditCard">Carte de crédit</label>
         <input
           type="text"
@@ -60,7 +60,7 @@
           aria-describedby="helpCreditCard"
           required
         />
-        <span id="helpCreditCard" class="help-block" *ngIf="creditCardInput.touched && creditCardInput.invalid">
+        <span id="helpCreditCard" class="help-block" *ngIf="creditCardInput.invalid">
           Le numéro de carte de crédit ne respecte pas le bon format. Exemple: 123-456
         </span>
       </div>
