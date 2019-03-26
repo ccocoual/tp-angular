@@ -11,14 +11,14 @@ import { Observable } from 'rxjs';
 })
 export class ProductDetailComponent implements OnInit {
   private id: string;
-  private $product: Observable<Product>;
+  private product$: Observable<Product>;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params.id;
-      this.$product = this.productService.getProduct(this.id);
+      this.product$ = this.productService.getProduct(this.id);
     });
   }
 }
