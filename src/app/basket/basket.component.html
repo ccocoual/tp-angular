@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <form (submit)="checkout()" #customerForm="ngForm" novalidate>
+    <form (submit)="checkout()" #customerForm="ngForm">
       <div class="form-group" [class.has-error]="nameInput.invalid">
         <label for="name">Nom</label>
         <input
