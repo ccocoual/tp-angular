@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CustomerService } from './customer.service';
 import { Product } from '../model/product';
@@ -8,11 +9,15 @@ const product2 = new Product('', '', '', 666, 0);
 
 describe('CustomerService', () => {
   let service: CustomerService;
+  let http: HttpTestingController;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [CustomerService],
     });
     service = TestBed.get(CustomerService);
+    http = TestBed.get(HttpTestingController);
   });
 
   it('should be created with no product', () => {
@@ -20,9 +25,19 @@ describe('CustomerService', () => {
     expect(service.basket.length).toBe(0);
   });
 
+  it('should load the basket from the server on getBasket', () => {
+    const mockedResponse = [new Product('abc', '', '', 0, 0), new Product('def', '', '', 0, 0)];
+    service.getBasket().subscribe(() => {
+      expect(service.basket.length).toBe(2);
+    });
+    http.expectOne('http://localhost:8080/rest/basket').flush(mockedResponse);
+  });
+
   it('should add products to the list when using addProduct', () => {
-    service.addProduct(product1);
-    expect(service.basket).toEqual([product1]);
+    service.addProduct(product1).subscribe(() => {
+      expect(service.basket).toEqual([product1]);
+    });
+    http.expectOne('http://localhost:8080/rest/basket').flush({});
   });
 
   it('should calculate the total price when using getTotal', () => {

@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Pipe, PipeTransform } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
+import { of } from 'rxjs';
 
 import { AppComponent } from './app.component';
 import { Product } from './model/product';
@@ -11,7 +12,7 @@ const fakeAppTitle = 'FAKE APP TITLE';
 
 class ProductServiceMock {
   getProducts() {
-    return testProducts;
+    return of(testProducts);
   }
   isAvailable() {
     return true;
@@ -20,6 +21,9 @@ class ProductServiceMock {
 }
 
 class CustomerServiceMock {
+  getBasket() {
+    return of();
+  }
   getTotal() {
     return 42;
   }
@@ -86,12 +90,12 @@ describe('AppComponent', () => {
     });
   });
 
-  it('should call addProduct and decreaseStock when updatePrice', () => {
+  it('should call addProduct and decreaseStock when updateBasketPrice', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     const product = testProducts[0];
 
-    spyOn(customerService, 'addProduct');
+    spyOn(customerService, 'addProduct').and.returnValue(of(product));
     spyOn(productService, 'decreaseStock');
 
     app.updateBasketTotal(product);
