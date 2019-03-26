@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./basket.component.scss'],
 })
 export class BasketComponent implements OnInit {
-  private basket: Product[];
-  private customer: Customer;
+  public basket: Product[];
+  public customer: Customer;
 
   constructor(private router: Router, private customerService: CustomerService) {}
 
