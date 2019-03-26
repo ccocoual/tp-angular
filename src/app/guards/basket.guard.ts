@@ -8,10 +8,7 @@ import { CustomerService } from '../services/customer.service';
 })
 export class BasketGuard implements CanActivate {
   constructor(private customerService: CustomerService) {}
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.customerService.isBasketFilled();
   }
 }

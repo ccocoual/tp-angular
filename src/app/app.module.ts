@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { registerLocaleData, APP_BASE_HREF } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import localeFrCa from '@angular/common/locales/fr-CA';
 registerLocaleData(localeFrCa, 'fr-CA');
@@ -19,7 +20,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'product/:id', component: ProductDetailComponent },
   { path: 'basket', component: BasketComponent, canActivate: [BasketGuard] },
 ];
 
@@ -33,7 +33,7 @@ const routes: Routes = [
     ProductDetailComponent,
     SortPipe,
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes), FormsModule],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     {

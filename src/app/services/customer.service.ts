@@ -3,6 +3,7 @@ import { Product } from '../model/product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { Customer } from '../model/customer';
 
 @Injectable({
   providedIn: 'root',
@@ -25,8 +26,12 @@ export class CustomerService {
     );
   }
 
-  isBasketFilled(): boolean {
-    return this.basket.length > 0;
+  checkout(customer: Customer) {
+    return this.http.post(`${this.API_URL}/confirm`, customer);
+  }
+
+  isBasketFilled(): Observable<boolean> {
+    return this.getBasket().pipe(map(products => products.length > 0));
   }
 
   addProduct(product: Product): Observable<any> {
