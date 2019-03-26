@@ -1,11 +1,15 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
+import { CustomerService } from '../services/customer.service';
 
 import { BasketGuard } from './basket.guard';
 
 describe('BasketGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BasketGuard],
+      providers: [
+        BasketGuard,
+        { provide: CustomerService, useValue: jasmine.createSpyObj('CustomerService', ['getBasket']) },
+      ],
     });
   });
 
