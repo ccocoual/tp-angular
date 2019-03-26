@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="row text-center">
-    <ng-container *ngFor="let product of products">
+    <ng-container *ngFor="let product of (products | sort)">
       <app-product
         *ngIf="isAvailable(product)"
         [product]="product"

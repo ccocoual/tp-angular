@@ -8,9 +8,10 @@ registerLocaleData(localeFrCa, 'fr-CA');
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductComponent } from './product/product.component';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, ProductComponent],
+  declarations: [AppComponent, MenuComponent, ProductComponent, SortPipe],
   imports: [BrowserModule],
   providers: [
     {

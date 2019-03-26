@@ -9,18 +9,18 @@ const BASE_IMG_URL = 'https://s3.eu-central-1.amazonaws.com/balibart-s3/Products
 export class ProductService {
   products: Product[] = [
     {
-      title: 'Sweat homme',
-      description: '<C0D1NG_TH3_W0RLD> SWEATSHIRT CHAUD BIO À CAPUCHE - HOMME',
-      photo: `${BASE_IMG_URL}/5acf344514006a7fe670e2eb/Mockups/front.png`,
-      price: 39,
-      stock: 2,
-    },
-    {
       title: 'Tee-Shirt homme',
       description: 'TEE-SHIRT BIO À COL ROND - HOMME',
       photo: `${BASE_IMG_URL}/5b2911e4ab33424aec592bd6/Mockups/front.png`,
       price: 19,
       stock: 1,
+    },
+    {
+      title: 'Sweat homme',
+      description: '<C0D1NG_TH3_W0RLD> SWEATSHIRT CHAUD BIO À CAPUCHE - HOMME',
+      photo: `${BASE_IMG_URL}/5acf344514006a7fe670e2eb/Mockups/front.png`,
+      price: 39,
+      stock: 2,
     },
     {
       title: 'Tee-Shirt femme',
