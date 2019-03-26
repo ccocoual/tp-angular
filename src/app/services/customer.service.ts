@@ -24,6 +24,10 @@ export class CustomerService {
     );
   }
 
+  isBasketFilled(): boolean {
+    return this.basket.length > 0;
+  }
+
   addProduct(product: Product): Observable<any> {
     return this.http.post(this.API_URL, product).pipe(tap(() => this.basket.push(product)));
   }

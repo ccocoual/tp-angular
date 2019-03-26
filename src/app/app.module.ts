@@ -14,7 +14,12 @@ import { HomeComponent } from './home/home.component';
 import { BasketComponent } from './basket/basket.component';
 import { SortPipe } from './pipes/sort.pipe';
 
-const routes: Routes = [{ path: '', component: HomeComponent }, { path: 'basket', component: BasketComponent }];
+import { BasketGuard } from './guards/basket.guard';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'basket', component: BasketComponent, canActivate: [BasketGuard] },
+];
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, ProductComponent, HomeComponent, BasketComponent, SortPipe],
