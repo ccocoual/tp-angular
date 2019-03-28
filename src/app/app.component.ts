@@ -1,8 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Product } from './model/product';
-
-import { ProductService } from './services/product.service';
-import { CustomerService } from './services/customer.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

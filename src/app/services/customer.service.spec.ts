@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CustomerService } from './customer.service';
-import { Product } from '../model/product';
+import { Product } from 'src/app/shared/model/product';
 
 const product1 = new Product('id', '', '', '', 42, 0);
 const product2 = new Product('id', '', '', '', 666, 0);

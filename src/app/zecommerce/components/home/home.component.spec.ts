@@ -3,9 +3,9 @@ import { TestBed, async } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 import { HomeComponent } from './home.component';
-import { Product } from '../model/product';
-import { CustomerService } from '../services/customer.service';
-import { ProductService } from '../services/product.service';
+import { Product } from 'src/app/shared/model/product';
+import { CustomerService } from 'src/app/services/customer.service';
+import { ProductService } from 'src/app/services/product.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 const testProducts = [new Product('id', '', '', '', 0, 0), new Product('id', '', '', '', 0, 0)];

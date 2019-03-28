@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductComponent } from './product.component';
-import { Product } from '../model/product';
-import { ProductService } from '../services/product.service';
+import { Product } from 'src/app/shared/model/product';
+import { ProductService } from 'src/app/services/product.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 const testProduct = new Product('id', 'title', 'description', 'photo', 42, 3);

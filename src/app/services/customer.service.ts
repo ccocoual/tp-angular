@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../model/product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { Customer } from '../model/customer';
+
+import { Product } from 'src/app/shared/model/product';
+import { Customer } from 'src/app/shared/model/customer';
 
 @Injectable({
   providedIn: 'root',

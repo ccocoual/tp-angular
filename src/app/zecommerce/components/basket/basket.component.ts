@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from '../services/customer.service';
-import { Product } from '../model/product';
-import { Customer } from '../model/customer';
+import { CustomerService } from 'src/app/services/customer.service';
+import { Product } from 'src/app/shared/model/product';
+import { Customer } from 'src/app/shared/model/customer';
 import { Router } from '@angular/router';
 
 @Component({

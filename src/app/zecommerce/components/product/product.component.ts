@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Product } from '../model/product';
-import { ProductService } from '../services/product.service';
-import { Router } from '@angular/router';
+import { Product } from 'src/app/shared/model/product';
+import { ProductService } from 'src/app/services/product.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +12,7 @@ export class ProductComponent implements OnInit {
   @Input() product: Product;
   @Output() addToBasket: EventEmitter<Product> = new EventEmitter<Product>();
 
-  constructor(private router: Router, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {}
 
   ngOnInit() {}
 
@@ -25,6 +25,6 @@ export class ProductComponent implements OnInit {
   }
 
   goToProductDetail() {
-    this.router.navigate(['product', this.product.id]);
+    this.router.navigate(['product', this.product.id], { relativeTo: this.route });
   }
 }

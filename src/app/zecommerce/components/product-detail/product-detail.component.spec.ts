@@ -3,8 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 
 import { ProductDetailComponent } from './product-detail.component';
-import { ProductService } from '../services/product.service';
-import { Product } from '../model/product';
+import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/shared/model/product';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;

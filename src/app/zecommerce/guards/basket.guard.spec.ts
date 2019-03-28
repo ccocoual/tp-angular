@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { CustomerService } from '../services/customer.service';
+import { CustomerService } from '../../services/customer.service';
 
 import { BasketGuard } from './basket.guard';
 

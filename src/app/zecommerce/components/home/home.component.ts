@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ProductService } from '../services/product.service';
-import { CustomerService } from '../services/customer.service';
-import { Product } from '../model/product';
+import { ProductService } from 'src/app/services/product.service';
+import { CustomerService } from 'src/app/services/customer.service';
+import { Product } from 'src/app/shared/model/product';
 
 @Component({
   selector: 'app-home',

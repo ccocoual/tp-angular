@@ -3,9 +3,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { of } from 'rxjs/';
 
-import { Product } from '../model/product';
+import { Product } from 'src/app/shared/model/product';
 import { BasketComponent } from './basket.component';
-import { CustomerService } from '../services/customer.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 const testProducts = [new Product('', 'test1', '', '', 0, 42), new Product('', 'test2', '', '', 0, 666)];
 
