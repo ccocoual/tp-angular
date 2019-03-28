@@ -25,8 +25,8 @@ export class CustomerService {
     );
   }
 
-  isBasketFilled(): boolean {
-    return this.basket.length > 0;
+  isBasketFilled(): Observable<boolean> {
+    return this.getBasket().pipe(map(products => products.length > 0));
   }
 
   addProduct(product: Product): Observable<any> {
