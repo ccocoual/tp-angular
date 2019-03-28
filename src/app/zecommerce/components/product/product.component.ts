@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Product } from 'src/app/shared/model/product';
 import { ProductService } from 'src/app/services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })
