@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
+  // The component will be refreshed only if the reference of Input change and not if only a property of the product change
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
