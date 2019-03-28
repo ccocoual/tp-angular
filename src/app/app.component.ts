@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getProducts().subscribe(products => (this.products = products));
+    this.customerService.getBasket().subscribe();
   }
 
   getTotal() {
