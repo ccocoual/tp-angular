@@ -11,6 +11,8 @@ import { MenuComponent } from './menu/menu.component';
 import { ProductComponent } from './product/product.component';
 import { SortPipe } from './pipes/sort.pipe';
 
+const API_BASE_URL: string = 'http://localhost:8080/rest';
+
 @NgModule({
   declarations: [AppComponent, MenuComponent, ProductComponent, SortPipe],
   imports: [BrowserModule, HttpClientModule],
@@ -22,6 +24,10 @@ import { SortPipe } from './pipes/sort.pipe';
     {
       provide: LOCALE_ID,
       useValue: 'fr-CA',
+    },
+    {
+      provide: 'API_BASE_URL',
+      useValue: API_BASE_URL,
     },
   ],
   bootstrap: [AppComponent],

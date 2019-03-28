@@ -11,7 +11,7 @@ describe('ProductService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ProductService],
+      providers: [ProductService, { provide: 'API_BASE_URL', useValue: 'http://localhost:8080/rest' }],
     });
     service = TestBed.get(ProductService);
     http = TestBed.get(HttpTestingController);

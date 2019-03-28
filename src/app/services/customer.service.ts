@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Product } from '../model/product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,10 +8,10 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class CustomerService {
-  private readonly API_URL = 'http://localhost:8080/rest/basket';
+  private readonly API_URL = this.API_BASE_URL + '/basket';
   basket: Product[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(@Inject('API_BASE_URL') private API_BASE_URL: string, private http: HttpClient) {}
 
   getBasket(): Observable<Product[]> {
     return this.http.get(this.API_URL).pipe(
