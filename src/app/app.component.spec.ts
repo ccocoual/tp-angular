@@ -78,7 +78,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('header').textContent).toContain(customerService.getTotal());
   });
 
-  it('should bind each product component with its product', () => {
+  it('should bind each product component with its product', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     const compiled = fixture.debugElement.nativeElement;
@@ -88,9 +88,9 @@ describe('AppComponent', () => {
     products.forEach((product, i) => {
       expect(product.product).toBe(app.products[i]);
     });
-  });
+  }));
 
-  it('should call addProduct and decreaseStock when updateBasketPrice', () => {
+  it('should call addProduct and decreaseStock when updateBasketPrice', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     const product = testProducts[0];
@@ -101,9 +101,9 @@ describe('AppComponent', () => {
     app.updateBasketTotal(product);
     expect(customerService.addProduct).toHaveBeenCalledWith(product);
     expect(productService.decreaseStock).toHaveBeenCalledWith(product);
-  });
+  }));
 
-  it('should not display product which is not available', () => {
+  it('should not display product which is not available', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     const compiled = fixture.debugElement.nativeElement;
@@ -119,5 +119,5 @@ describe('AppComponent', () => {
     const products = compiled.querySelectorAll('app-product');
     expect(products.length).toBe(1);
     expect(products[0].product).toBe(app.products[1]);
-  });
+  }));
 });
